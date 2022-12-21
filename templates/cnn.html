@@ -16,14 +16,75 @@
         filters/characteristics.
       </p>
     </div>
+    <div>
+      <h3 class="text-xl font-extrabold dark:text-white">
+        Skin Cancer Identification
+      </h3>
+      <p class="my-2 text-lg text-justify text-gray-500">
+        The <bold class="text-orange-700"> Angkasa Project</bold> there are
+        currently 3 types of skin cancer identified including basal skin cancer,
+        melanoma skin cancer, and vascular skin cancer with the addition of 1
+        normal skin type. Each of the skin cancers that have been identified can
+        be seen in the example image below.
+      </p>
+      <div class="flex items-center justify-center">
+        <div class="px-2 text-center">
+          <p class="my-2 text-md text-gray-500">Normal</p>
+          <img
+            class="max-w-xs h-aut rounded-lg shadow-lg"
+            width="200px"
+            height="200px"
+            src="../static/images/normal1.jpg"
+            alt="image description"
+          />
+        </div>
+        <div class="px-2 text-center">
+          <p class="my-2 text-md text-gray-500">Basal</p>
+          <img
+            class="max-w-xs h-auto rounded-lg shadow-lg"
+            width="200px"
+            height="200px"
+            src="../static/images/basal.jpg"
+            alt="image description"
+          />
+        </div>
+        <div class="px-2 text-center">
+          <p class="my-2 text-md text-gray-500">Melanoma</p>
+          <img
+            class="max-w-xs h-auto rounded-lg shadow-lg"
+            width="200px"
+            height="200px"
+            src="../static/images/melanoma.jpg"
+            alt="image description"
+          />
+        </div>
+        <div class="px-2 text-center">
+          <p class="my-2 text-md text-gray-500">Vascular</p>
+          <img
+            class="max-w-xs h-auto rounded-lg shadow-lg"
+            width="200px"
+            height="200px"
+            src="../static/images/vascular.jpg"
+            alt="image description"
+          />
+        </div>
+      </div>
+      <p class="my-4 text-lg text-justify text-gray-500">
+        Based on the example of the skin cancer image above. The
+        <bold class="text-orange-700"> Angkasa Project</bold>
+        carries out a classification process using the Convolutional Neural
+        Network (CNN) deep learning method which is designed using the python
+        programming language.
+      </p>
+    </div>
+    <div class="mt-4 mb-4">
+      <h3 class="text-xl font-extrabold dark:text-white">
+        Skin Cancer Classification Tools
+      </h3>
+    </div>
 
     <form method="post" action="/cnn" enctype="multipart/form-data">
-      <div>
-        <label
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          for="file_input"
-          >Upload photo</label
-        >
+      <div class="max-w-2xl mx-auto">
         <input
           class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
           aria-describedby="file_input_help"
@@ -33,15 +94,31 @@
           onchange="loadFile(event)"
           multiple
         />
-        <p
-          class="mt-1 text-sm text-gray-500 dark:text-gray-300"
-          id="file_input_help"
-        >
-          Upload JPG, JPEG, PNG
-        </p>
       </div>
 
-      <div class="max-w-xl mx-auto mt-6">
+      <div class="max-w-2xl mx-auto mt-6">
+        <div class="max-w-2xl mx-auto mt-4">
+          <button
+            type="submit"
+            class="py-2 w-full inline-block mr-2 mb-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 disabled:bg-gray-200 disabled:hover:text-black"
+            disabled
+          >
+            Predict
+          </button>
+        </div>
+        <img
+          class="rounded-lg shadow-xl dark:shadow-gray-800"
+          src="{{ image }}"
+          id="output"
+          alt="image description"
+          width="700px"
+          height="200px"
+          style="max-height: 300px"
+        />
+        <label
+          class="text-center block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >The result will appear below</label
+        >
         <div
           class="mt-2 py-2 p-4 mb-4 text-sm text-blue-700 bg-gray-100 rounded-lg dark:bg-gray-800 dark:text-blue-800"
           role="alert"
@@ -49,29 +126,12 @@
           <p
             class="capitalize font-medium text-center text-gray-500 dark:text-gray-400"
           >
-            Result is {{ predictions }}
+            - {{ predictions }} -
           </p>
         </div>
-        <img
-          class="rounded-lg shadow-xl dark:shadow-gray-800"
-          src="{{ image }}"
-          id="output"
-          alt="image description"
-          width="580px"
-          height="300px"
-          style="max-height: 300px"
-        />
-      </div>
-      <div class="max-w-xl mx-auto mt-4">
-        <button
-          type="submit"
-          class="py-2.5 w-full inline-block mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 disabled:bg-gray-200 disabled:hover:text-black"
-          disabled
-        >
-          Predict
-        </button>
       </div>
     </form>
   </div>
 </section>
+
 {% endblock %}
