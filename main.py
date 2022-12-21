@@ -29,28 +29,12 @@ async def home_page(request: Request):
     return templates.TemplateResponse("home.html", context)
 
 
-@app.get("/contact", response_class=HTMLResponse)
-async def test_page(request: Request):
-    context = {
-        "request": request,
-    }
-    return templates.TemplateResponse("contact.html", context)
-
-
 @app.get("/knn", response_class=HTMLResponse)
 async def test_page(request: Request):
     context = {
         "request": request,
     }
     return templates.TemplateResponse("knn.html", context)
-
-
-# @app.get("/esp", response_class=HTMLResponse)
-# async def test_page(request: Request):
-#     context = {
-#         "request": request,
-#     }
-#     return templates.TemplateResponse("esp.html", context)
 
 
 @app.get("/cnn", response_class=HTMLResponse)
