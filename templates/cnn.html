@@ -96,11 +96,11 @@
         />
       </div>
 
-      <div class="max-w-2xl mx-auto mt-6">
-        <div class="max-w-2xl mx-auto mt-4">
+      <div class="max-w-2xl mx-auto mt-4">
+        <div>
           <button
             type="submit"
-            class="py-2 w-full inline-block mr-2 mb-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 disabled:bg-gray-200 disabled:hover:text-black"
+            class="py-2 w-full inline-block mr-2 mb-4 text-sm font-medium text-gray-800 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-50 hover:text-gray-900 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 disabled:bg-gray-100 disabled:hover:text-black"
             disabled
           >
             Predict
@@ -110,7 +110,7 @@
           class="rounded-lg shadow-xl dark:shadow-gray-800"
           src="{{ image }}"
           id="output"
-          alt="image description"
+          onerror="this.src='../static/images/example.jpg'"
           width="700px"
           height="200px"
           style="max-height: 300px"
@@ -124,7 +124,7 @@
           role="alert"
         >
           <p
-            class="capitalize font-medium text-center text-gray-500 dark:text-gray-400"
+            class="capitalize font-medium text-center text-gray-800 dark:text-gray-400"
           >
             - {{ predictions }} -
           </p>
