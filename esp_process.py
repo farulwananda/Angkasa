@@ -27,17 +27,6 @@ class_predictions = array([
 ])
 
 
-# def load_image():
-#     ts = 0
-#     found = None
-#     for file_name in glob.glob('static/uploads/*.jpg'):
-#         fts = os.path.getmtime(file_name)
-#         if fts > ts:
-#             ts = fts
-#             found = file_name
-#     return found
-
-
 def predictx(latest_file):
     global model
     if model is None:
@@ -52,7 +41,7 @@ def predictx(latest_file):
 
     print(latest_file)
     print(
-        "This image belongs to {}"
+        "This image is {}"
         .format(class_predictions[np.argmax(score)])
     )
     # img = cv2.imread(filename)

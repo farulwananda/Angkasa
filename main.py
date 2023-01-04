@@ -29,14 +29,6 @@ async def home_page(request: Request):
     return templates.TemplateResponse("home.html", context)
 
 
-@app.get("/knn", response_class=HTMLResponse)
-async def test_page(request: Request):
-    context = {
-        "request": request,
-    }
-    return templates.TemplateResponse("knn.html", context)
-
-
 @app.get("/cnn", response_class=HTMLResponse)
 async def cnn_page(request: Request):
     context = {
@@ -61,6 +53,14 @@ async def predict_cnn(request: Request, file: UploadFile = File(...)):
     return templates.TemplateResponse("cnn.html", context)
 
 
+@app.get("/esp", response_class=HTMLResponse)
+async def test_page(request: Request):
+    context = {
+        "request": request,
+    }
+    return templates.TemplateResponse("esp.html", context)
+
+
 @app.post('/esp')
 async def image_esp(request: Request):
     list_of_files = glob.glob('static/uploads/*')
@@ -74,12 +74,12 @@ async def image_esp(request: Request):
     return templates.TemplateResponse("esp.html", context)
 
 
-@app.get("/esp", response_class=HTMLResponse)
+@app.get("/knn", response_class=HTMLResponse)
 async def test_page(request: Request):
     context = {
         "request": request,
     }
-    return templates.TemplateResponse("esp.html", context)
+    return templates.TemplateResponse("knn.html", context)
 
 
 if __name__ == "__main__":
